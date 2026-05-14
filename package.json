@@ -1,0 +1,50 @@
+{
+  "name": "awesome-codex-pets",
+  "version": "0.1.0",
+  "description": "Ready-to-install Codex desktop pets plus catalog, preview, and installer tooling.",
+  "type": "module",
+  "bin": {
+    "awesome-codex-pets": "./bin/awesome-codex-pets.js",
+    "codex-pets": "./bin/awesome-codex-pets.js"
+  },
+  "files": [
+    "assets/previews",
+    "bin",
+    "catalog",
+    "docs",
+    "pets",
+    "schema",
+    "scripts",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "list": "node ./bin/awesome-codex-pets.js list",
+    "validate": "node ./scripts/validate-catalog.js",
+    "previews": "node ./scripts/generate-preview-gifs.js",
+    "readme": "node ./scripts/update-readme-preview.js",
+    "build": "npm run validate && npm run readme"
+  },
+  "keywords": [
+    "codex",
+    "codex-pets",
+    "pets",
+    "spritesheet",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huaqingai/awesome-codex-pets.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "gifenc": "^1.0.3"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

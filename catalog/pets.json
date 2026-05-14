@@ -1,0 +1,32 @@
+{
+  "$schema": "../schema/pets.schema.json",
+  "version": 1,
+  "packageName": "awesome-codex-pets",
+  "repository": "https://github.com/huaqingai/awesome-codex-pets",
+  "rawBaseUrl": "https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main",
+  "previewStates": [
+    "idle",
+    "waving",
+    "running",
+    "waiting",
+    "review"
+  ],
+  "categories": [
+    {
+      "id": "anime-characters",
+      "name": "Anime Characters",
+      "description": "Character-inspired Codex pets."
+    },
+    {
+      "id": "mascots",
+      "name": "Mascots",
+      "description": "Mascot-style pets for tools, teams, and products."
+    },
+    {
+      "id": "pixel",
+      "name": "Pixel Pets",
+      "description": "Pixel-art pets and retro sprites."
+    }
+  ],
+  "pets": []
+}
