@@ -349,4 +349,5 @@ grid, `192x208` cells, transparent background. It writes one GIF per state to
 
 See [docs/PET_FORMAT.md](docs/PET_FORMAT.md) and
 [docs/ADDING_PETS.md](docs/ADDING_PETS.md) for the package and contribution
-details.
+details. See [ROADMAP.md](ROADMAP.md) for planned install, activation, and
+pet-development workflow improvements.
