@@ -67,6 +67,9 @@ fi
 DEST_DIR="$CODEX_HOME_DIR/pets/$PET_ID"
 if [ -e "$DEST_DIR" ] && [ "$FORCE" -ne 1 ]; then
   echo "$PET_ID is already installed at $DEST_DIR. Use --force to overwrite." >&2
+  echo "Open Codex Desktop -> File -> Settings -> Appearance -> Pet and choose \"$PET_ID\"." >&2
+  echo "After selecting it, wake Codex Desktop; restart Codex Desktop only if the pet still does not appear." >&2
+  echo "Optional best-effort automation: npx awesome-codex-pets apply $PET_ID" >&2
   exit 1
 fi
 
@@ -88,6 +91,12 @@ cp "$TMP_DIR/pet.json" "$DEST_DIR/pet.json"
 cp "$TMP_DIR/spritesheet.webp" "$DEST_DIR/spritesheet.webp"
 
 echo "$PET_ID installed to $DEST_DIR"
+echo "Open Codex Desktop -> File -> Settings -> Appearance -> Pet and choose \"$PET_ID\"."
+echo "After selecting it, wake Codex Desktop; restart Codex Desktop only if the pet still does not appear."
+
+if [ "$APPLY" -ne 1 ]; then
+  echo "Optional best-effort automation: npx awesome-codex-pets apply $PET_ID"
+fi
 
 if [ "$APPLY" -eq 1 ]; then
   cat > "$CODEX_HOME_DIR/pets/.active-pet.json" <<EOF
@@ -99,4 +108,5 @@ if [ "$APPLY" -eq 1 ]; then
 }
 EOF
   echo "$PET_ID active marker written to $CODEX_HOME_DIR/pets/.active-pet.json"
+  echo "Apply is best-effort; use the Codex Desktop pet selector above if the active pet did not change."
 fi

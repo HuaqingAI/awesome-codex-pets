@@ -21,10 +21,26 @@ Install a pet into Codex:
 npx awesome-codex-pets install <pet-id>
 ```
 
-Install and mark it as active:
+The install command prints the resolved install path and the manual activation
+path: Codex Desktop -> File -> Settings -> Appearance -> Pet. Choose the pet
+there, then wake Codex Desktop.
+
+Optionally try best-effort automatic activation:
 
 ```bash
 npx awesome-codex-pets apply <pet-id>
+```
+
+`apply` ensures the package is installed, writes the active marker, and tries
+to update known Codex persisted selection keys such as `selected-avatar-id`
+when they exist and are writable. Some Codex Desktop builds do not react to
+that state write immediately, so the UI path above remains the reliable
+fallback.
+
+Diagnose common activation problems:
+
+```bash
+npx awesome-codex-pets doctor
 ```
 
 Direct install from GitHub raw files:
@@ -34,10 +50,10 @@ curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/s
 ```
 
 Codex loads custom pets from `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>`.
-`apply` installs the package and writes an active marker at
-`${CODEX_HOME:-$HOME/.codex}/pets/.active-pet.json`. If a Codex Desktop build
-does not expose a writable pet-selection setting, choose the installed pet from
-Codex's UI after installation.
+After installation, open Codex Desktop -> File -> Settings -> Appearance -> Pet
+and choose the installed pet, then wake Codex Desktop. If the pet still does
+not appear after selection, restart Codex Desktop. `apply` is optional and
+best-effort; if it does not switch the visible pet, use the same UI path.
 
 ## Pet Catalog
 

@@ -7,7 +7,7 @@ import {
   readCatalog,
   validateCatalog
 } from "./catalog.js";
-import { applyPet, installPet, listInstalledPets } from "./codex.js";
+import { applyPet, diagnoseCodexPets, installPet, listInstalledPets } from "./codex.js";
 import { activeMarkerPath, packageRoot, petsDir, resolveCodexHome } from "./paths.js";
 
 const root = packageRoot();
@@ -39,6 +39,9 @@ export async function runCli(argv) {
       return;
     case "apply":
       await applyCommand(parsed);
+      return;
+    case "doctor":
+      await doctorCommand(parsed);
       return;
     case "where":
       await whereCommand(parsed);
@@ -150,7 +153,7 @@ async function showCommand({ flags, positionals }) {
 async function installCommand({ flags, positionals }) {
   const petId = positionals[0];
   if (!petId) {
-    throw new Error("Usage: awesome-codex-pets install <pet-id|all> [--force] [--apply]");
+    throw new Error("Usage: awesome-codex-pets install <pet-id|all> [--force] [--apply] [--codex-home <path>]");
   }
 
   const catalog = await readCatalog(root);
@@ -167,7 +170,7 @@ async function installCommand({ flags, positionals }) {
     const result = await installPet({ root, catalog, petId: id, codexHome, force });
     results.push(result);
     if (!flags.json) {
-      printInstallResult(result);
+      printInstallResult(result, { showNextStep: !flags.apply });
     }
   }
 
@@ -191,7 +194,7 @@ async function installCommand({ flags, positionals }) {
 async function applyCommand({ flags, positionals }) {
   const petId = positionals[0];
   if (!petId) {
-    throw new Error("Usage: awesome-codex-pets apply <pet-id> [--force]");
+    throw new Error("Usage: awesome-codex-pets apply <pet-id> [--force] [--codex-home <path>]");
   }
   const catalog = await readCatalog(root);
   const codexHome = resolveCodexHome(flags.codexHome);
@@ -207,8 +210,23 @@ async function applyCommand({ flags, positionals }) {
     console.log(JSON.stringify(result, null, 2));
     return;
   }
-  printInstallResult(result);
+  printInstallResult(result, { showNextStep: false });
   printApplyResult(result);
+}
+
+async function doctorCommand({ flags }) {
+  const codexHome = resolveCodexHome(flags.codexHome);
+  const result = await diagnoseCodexPets(codexHome);
+
+  if (flags.json) {
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+
+  printDoctorResult(result);
+  if (result.errors.length > 0) {
+    process.exitCode = 1;
+  }
 }
 
 async function whereCommand({ flags }) {
@@ -218,7 +236,8 @@ async function whereCommand({ flags }) {
     catalog: path.join(root, "catalog", "pets.json"),
     codexHome,
     petsDir: petsDir(codexHome),
-    activeMarker: activeMarkerPath(codexHome)
+    activeMarker: activeMarkerPath(codexHome),
+    codexGlobalState: path.join(codexHome, ".codex-global-state.json")
   };
   if (flags.json) {
     console.log(JSON.stringify(payload, null, 2));
@@ -247,22 +266,146 @@ async function validateCommand({ flags }) {
   console.log("Catalog validation passed.");
 }
 
-function printInstallResult(result) {
+function printInstallResult(result, { showNextStep = false } = {}) {
   if (result.skipped) {
     console.log(`${result.pet.id}: already installed at ${result.targetDir}`);
+    if (showNextStep) {
+      printEnableCommand(result.pet.id);
+    }
     return;
   }
   if (result.installed) {
-    console.log(`${result.pet.id}: installed to ${result.targetDir}`);
+    const action = result.repaired ? "repaired installation at" : "installed to";
+    console.log(`${result.pet.id}: ${action} ${result.targetDir}`);
+    if (showNextStep) {
+      printEnableCommand(result.pet.id);
+    }
   }
 }
 
 function printApplyResult(result) {
-  console.log(`${result.pet.id}: active marker written to ${result.marker}`);
+  const petId = result.pet.id;
+  console.log(`${petId}: active marker written to ${result.marker}`);
   if (result.stateUpdate?.updatedKeys?.length) {
-    console.log(`${result.pet.id}: updated Codex state key(s): ${result.stateUpdate.updatedKeys.join(", ")}`);
+    console.log(`${petId}: updated Codex state key(s): ${result.stateUpdate.updatedKeys.join(", ")}`);
   } else {
-    console.log(`${result.pet.id}: no writable Codex pet-selection state key was found; select it in Codex UI if needed.`);
+    const reason = describeStateUpdateReason(result.stateUpdate?.reason);
+    console.log(`${petId}: Codex persisted pet selection was not updated (${reason}).`);
+  }
+  console.log(`${petId}: apply is best-effort; Codex Desktop may still require manual selection.`);
+  printManualActivationGuidance(petId);
+}
+
+function printDoctorResult(result) {
+  console.log("Codex pets doctor");
+  console.log(`CODEX_HOME: ${result.codexHome}`);
+  console.log(`Pets directory: ${result.petsDir}`);
+  console.log("");
+
+  console.log("Installed pets:");
+  if (result.installedPets.length === 0) {
+    console.log("  none");
+  } else {
+    for (const pet of result.installedPets) {
+      const status = pet.invalid ? `invalid (${pet.issues.join("; ")})` : "ok";
+      console.log(`  ${pet.id}: ${status}`);
+      console.log(`    ${pet.dir}`);
+    }
+  }
+  console.log("");
+
+  console.log("Active marker:");
+  const marker = result.activeMarker;
+  if (!marker.exists) {
+    console.log(`  missing at ${marker.path}`);
+  } else if (!marker.readable) {
+    console.log(`  unreadable at ${marker.path}: ${marker.error}`);
+  } else if (!marker.validJson) {
+    console.log(`  invalid JSON at ${marker.path}: ${marker.error}`);
+  } else {
+    console.log(`  path: ${marker.path}`);
+    console.log(`  id: ${marker.contents?.id || "-"}`);
+    console.log(`  packageDir: ${marker.contents?.packageDir || "-"}`);
+    if (marker.issues.length > 0) {
+      console.log(`  issues: ${marker.issues.join("; ")}`);
+    } else {
+      console.log("  status: ok");
+    }
+  }
+  console.log("");
+
+  console.log("Codex global state:");
+  const state = result.codexState;
+  console.log(`  path: ${state.statePath}`);
+  if (!state.exists) {
+    console.log("  status: missing");
+  } else if (!state.readable) {
+    console.log(`  status: unreadable (${state.error})`);
+  } else if (!state.validJson) {
+    console.log(`  status: invalid JSON (${state.error})`);
+  } else {
+    console.log(`  status: ${state.writable ? "readable and writable" : "readable but not writable"}`);
+    console.log(`  persisted state: ${state.hasPersistedState ? "found" : "missing"}`);
+    if (state.knownKeys.length > 0) {
+      console.log("  known pet-selection keys:");
+      for (const item of state.knownKeys) {
+        console.log(`    ${item.key}: ${JSON.stringify(item.value)}`);
+      }
+    } else {
+      console.log("  known pet-selection keys: none");
+    }
+  }
+  console.log("");
+
+  if (result.errors.length > 0) {
+    console.log("Errors:");
+    for (const error of result.errors) {
+      console.log(`  - ${error}`);
+    }
+    console.log("");
+  }
+  if (result.warnings.length > 0) {
+    console.log("Warnings:");
+    for (const warning of result.warnings) {
+      console.log(`  - ${warning}`);
+    }
+    console.log("");
+  }
+
+  if (result.errors.length === 0 && result.warnings.length === 0) {
+    console.log("No common activation problems found.");
+  } else {
+    console.log("Fallback guidance:");
+    printManualActivationGuidance(marker.contents?.id || "<pet-id>");
+  }
+}
+
+function printEnableCommand(petId) {
+  printManualActivationGuidance(petId);
+  console.log(`${petId}: optional best-effort automation: npx awesome-codex-pets apply ${petId}`);
+}
+
+function printManualActivationGuidance(petId) {
+  console.log(`${petId}: open Codex Desktop -> File -> Settings -> Appearance -> Pet and choose "${petId}".`);
+  console.log(`${petId}: after selecting it, wake Codex Desktop; restart Codex Desktop only if the pet still does not appear.`);
+}
+
+function describeStateUpdateReason(reason) {
+  switch (reason) {
+    case "state-file-not-found":
+      return "global state file not found";
+    case "state-file-not-readable":
+      return "global state file not readable";
+    case "state-file-invalid-json":
+      return "global state file has invalid JSON";
+    case "persisted-state-not-found":
+      return "persisted state block not found";
+    case "state-file-not-writable":
+      return "global state file not writable";
+    case "no-known-state-key":
+      return "no known writable pet-selection key found";
+    default:
+      return reason || "unknown reason";
   }
 }
 
@@ -289,9 +432,10 @@ Usage:
   awesome-codex-pets list [--category <id>] [--json]
   awesome-codex-pets list --installed [--codex-home <path>]
   awesome-codex-pets show <pet-id> [--json]
-  awesome-codex-pets install <pet-id|all> [--force] [--apply]
-  awesome-codex-pets apply <pet-id> [--force]
-  awesome-codex-pets where [--json]
+  awesome-codex-pets install <pet-id|all> [--force] [--apply] [--codex-home <path>]
+  awesome-codex-pets apply <pet-id> [--force] [--codex-home <path>]
+  awesome-codex-pets doctor [--codex-home <path>] [--json]
+  awesome-codex-pets where [--codex-home <path>] [--json]
   awesome-codex-pets validate
 
 Aliases:
