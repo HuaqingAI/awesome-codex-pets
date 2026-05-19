@@ -20,11 +20,12 @@
     "LICENSE"
   ],
   "scripts": {
+    "catalog:sync": "node ./scripts/sync-catalog.js",
     "list": "node ./bin/awesome-codex-pets.js list",
     "validate": "node ./scripts/validate-catalog.js",
     "previews": "node ./scripts/generate-preview-gifs.js",
     "readme": "node ./scripts/update-readme-preview.js",
-    "build": "npm run validate && npm run readme"
+    "build": "npm run catalog:sync && npm run validate && npm run readme"
   },
   "keywords": [
     "codex",

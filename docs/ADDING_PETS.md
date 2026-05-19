@@ -2,10 +2,11 @@
 
 1. Create a package folder under `pets/<pet-id>/`.
 2. Add `pet.json` and `spritesheet.webp`.
-3. Add metadata to `catalog/pets.json`.
-4. Run `npm run previews` to render per-state GIFs.
-5. Run `npm run readme` to update the gallery block.
-6. Run `npm run validate`.
+3. Add `submission.json` metadata when available.
+4. Run `npm run catalog:sync` to update `catalog/pets.json`.
+5. Run `npm run previews` to render per-state GIFs.
+6. Run `npm run readme` to update the gallery block.
+7. Run `npm run validate`.
 
 Example catalog entry:
 
@@ -27,9 +28,10 @@ Example catalog entry:
 Useful commands:
 
 ```bash
-npm run validate
+npm run catalog:sync
 npm run previews -- --pet firefly--lingxiaotian --force
 npm run readme
+npm run validate
 npx awesome-codex-pets install firefly--lingxiaotian --force
 npx awesome-codex-pets apply firefly--lingxiaotian
 ```

@@ -18,6 +18,16 @@
       "description": "Character-inspired Codex pets."
     },
     {
+      "id": "animals",
+      "name": "Animals",
+      "description": "Animal-inspired Codex pets."
+    },
+    {
+      "id": "original-characters",
+      "name": "Original Characters",
+      "description": "Original character pets from the community."
+    },
+    {
       "id": "mascots",
       "name": "Mascots",
       "description": "Mascot-style pets for tools, teams, and products."
@@ -28,5 +38,281 @@
       "description": "Pixel-art pets and retro sprites."
     }
   ],
-  "pets": []
+  "pets": [
+    {
+      "id": "bocchi--lingxiaotian",
+      "name": "Bocchi",
+      "description": "A compact Codex digital pet inspired by Bocchi from Bocchi the Rock.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "music",
+        "guitar",
+        "bocchi-the-rock",
+        "pink-hair"
+      ],
+      "aliases": [
+        "bocchi"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/bocchi--lingxiaotian"
+    },
+    {
+      "id": "dnf-female-ammo--qunboo",
+      "name": "女弹药Q",
+      "description": "A chibi-style Dungeon Fighter Online Female Mechanic (Ammo) desktop pet, featuring idle breathing and gun-twirl animations.",
+      "category": "anime-characters",
+      "tags": [
+        "dnf",
+        "dungeon-fighter",
+        "female-ammo",
+        "game",
+        "chibi"
+      ],
+      "aliases": [
+        "dnf-female-ammo"
+      ],
+      "author": {
+        "name": "QunBoo",
+        "url": "https://github.com/QunBoo"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/dnf-female-ammo--qunboo"
+    },
+    {
+      "id": "firefly--lingxiaotian",
+      "name": "Firefly",
+      "description": "《崩坏：星穹铁道》流萤变身前的人类形态 Codex 数码宠物，温柔、轻盈、白绿金配色。",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "honkai-star-rail",
+        "firefly",
+        "white-hair",
+        "mint-green"
+      ],
+      "aliases": [
+        "firefly"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/firefly--lingxiaotian"
+    },
+    {
+      "id": "frieren--lingxiaotian",
+      "name": "Frieren",
+      "description": "A compact Codex digital pet inspired by Frieren, a calm elven mage companion.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "elf",
+        "mage",
+        "fantasy",
+        "frieren"
+      ],
+      "aliases": [
+        "frieren"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/frieren--lingxiaotian"
+    },
+    {
+      "id": "mahiro--lingxiaotian",
+      "name": "Mahiro",
+      "description": "A shy Codex digital pet inspired by Mahiro Oyama from ONIMAI, wearing an oversized off-shoulder summer shirt.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "onimai",
+        "mahiro",
+        "oyama-mahiro",
+        "off-shoulder"
+      ],
+      "aliases": [
+        "mahiro"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/mahiro--lingxiaotian"
+    },
+    {
+      "id": "mikoto--lingxiaotian",
+      "name": "Mikoto",
+      "description": "A chibi electric schoolgirl Codex pet with coin tricks inspired by Misaka Mikoto.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "electric",
+        "schoolgirl",
+        "misaka-mikoto"
+      ],
+      "aliases": [
+        "mikoto"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/mikoto--lingxiaotian"
+    },
+    {
+      "id": "miku--lingxiaotian",
+      "name": "Miku",
+      "description": "A compact Codex digital pet inspired by Hatsune Miku, a bright virtual idol singer.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "virtual-idol",
+        "teal-hair",
+        "twintails",
+        "miku"
+      ],
+      "aliases": [
+        "miku"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/miku--lingxiaotian"
+    },
+    {
+      "id": "paimon--lingxiaotian",
+      "name": "Paimon",
+      "description": "A compact Codex digital pet inspired by Paimon, the floating companion from Genshin Impact.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "genshin-impact",
+        "paimon",
+        "floating-companion",
+        "white-hair"
+      ],
+      "aliases": [
+        "paimon"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/paimon--lingxiaotian"
+    },
+    {
+      "id": "reimu--lingxiaotian",
+      "name": "Reimu",
+      "description": "A compact Codex digital pet inspired by Hakurei Reimu, a calm shrine maiden from Touhou.",
+      "category": "anime-characters",
+      "tags": [
+        "anime",
+        "touhou",
+        "shrine-maiden",
+        "reimu",
+        "hakurei-reimu"
+      ],
+      "aliases": [
+        "reimu"
+      ],
+      "author": {
+        "name": "Lingxiaotian",
+        "url": "https://github.com/legeling"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/reimu--lingxiaotian"
+    },
+    {
+      "id": "becky--natewanggg",
+      "name": "Becky",
+      "description": "A slim dark-gray mackerel tabby Codex pet based on Becky, with curled ears, very round pale yellow eyes, black paw pads, and a thin ring-striped tail.",
+      "category": "animals",
+      "tags": [
+        "cat",
+        "tabby",
+        "becky",
+        "original-pet",
+        "dark-gray"
+      ],
+      "aliases": [
+        "becky"
+      ],
+      "author": {
+        "name": "NateWanggg",
+        "url": "https://github.com/NateWanggg"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/becky--natewanggg"
+    },
+    {
+      "id": "fleta--natewanggg",
+      "name": "Fleta",
+      "description": "A cute pixel-art-adjacent Codex pet based on Fleta, a plush silver-white cat with round cheeks, big blue-gray eyes, tiny paws, and soft gray shading.",
+      "category": "animals",
+      "tags": [
+        "cat",
+        "silver-white",
+        "fleta",
+        "original-pet",
+        "soft"
+      ],
+      "aliases": [
+        "fleta"
+      ],
+      "author": {
+        "name": "NateWanggg",
+        "url": "https://github.com/NateWanggg"
+      },
+      "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/fleta--natewanggg"
+    },
+    {
+      "id": "teddy--danieloleary",
+      "name": "Teddy",
+      "description": "Tiny animated Codex bear buddy with round glasses, a navy cardigan, an iPad mini, and calmer little work moods.",
+      "category": "animals",
+      "tags": [
+        "bear",
+        "cute",
+        "animated",
+        "soft",
+        "mascot",
+        "codex"
+      ],
+      "aliases": [
+        "teddy"
+      ],
+      "author": {
+        "name": "Daniel O'Leary",
+        "url": "https://github.com/danieloleary"
+      },
+      "url": "https://danieloleary.github.io/teddy-v31/"
+    },
+    {
+      "id": "night-neko--netizenxuan",
+      "name": "Night Neko",
+      "description": "A white cat-demon desktop companion with sleepy eyes, red-black bat wings, gothic stripes, one fluffy tail, and late-night coding energy.",
+      "category": "original-characters",
+      "tags": [
+        "cat",
+        "demon",
+        "gothic",
+        "night",
+        "coding",
+        "cyberpunk",
+        "chibi"
+      ],
+      "aliases": [
+        "night-neko"
+      ],
+      "author": {
+        "name": "netizenXuan",
+        "url": "https://github.com/netizenXuan"
+      },
+      "url": "https://github.com/netizenXuan/night-neko-codex-pet"
+    }
+  ]
 }

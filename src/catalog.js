@@ -13,6 +13,47 @@ export async function readCatalog(root = packageRoot()) {
   return catalog;
 }
 
+export async function discoverPetPackages(root = packageRoot()) {
+  const packagesRoot = path.join(root, "pets");
+  let entries = [];
+  try {
+    entries = await fs.readdir(packagesRoot, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
+
+  const packages = [];
+  for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+    if (!entry.isDirectory() || entry.name.startsWith(".")) {
+      continue;
+    }
+
+    const packageDir = path.join(packagesRoot, entry.name);
+    const manifestPath = path.join(packageDir, "pet.json");
+    let manifest = null;
+    let manifestError = null;
+    try {
+      manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    } catch (error) {
+      manifestError = error;
+    }
+
+    packages.push({
+      dirName: entry.name,
+      packageDir,
+      manifestPath,
+      spritesheetPath: path.join(packageDir, "spritesheet.webp"),
+      manifest,
+      manifestError
+    });
+  }
+
+  return packages;
+}
+
 export function categoryMap(catalog) {
   return new Map((catalog.categories || []).map((category) => [category.id, category]));
 }
@@ -58,10 +99,14 @@ export async function validateCatalog(root = packageRoot()) {
   const errors = [];
   const warnings = [];
   const catalog = await readCatalog(root);
+  const catalogPets = catalog.pets || [];
   const categories = categoryMap(catalog);
   const states = stateMap();
   const petIds = new Set();
   const categoryIds = new Set();
+  const catalogPackageDirs = new Set(
+    catalogPets.map((pet) => path.resolve(petPackagePath(root, pet)))
+  );
 
   if (!Number.isInteger(catalog.version)) {
     errors.push("catalog.version must be an integer.");
@@ -86,7 +131,27 @@ export async function validateCatalog(root = packageRoot()) {
     }
   }
 
-  for (const pet of catalog.pets || []) {
+  for (const petPackage of await discoverPetPackages(root)) {
+    const relativePackageDir = toCatalogPath(path.relative(root, petPackage.packageDir));
+    if (!PET_ID_PATTERN.test(petPackage.dirName)) {
+      errors.push(`Invalid pet package directory: ${relativePackageDir}`);
+    }
+    if (petPackage.manifestError) {
+      errors.push(`${relativePackageDir} is missing or has invalid pet.json: ${petPackage.manifestError.message}`);
+    } else if (petPackage.manifest.id && petPackage.manifest.id !== petPackage.dirName) {
+      errors.push(`${relativePackageDir} manifest id is ${petPackage.manifest.id}.`);
+    }
+    if (!catalogPackageDirs.has(path.resolve(petPackage.packageDir))) {
+      errors.push(`${relativePackageDir} is not listed in catalog.pets.`);
+      try {
+        await fs.access(petPackage.spritesheetPath);
+      } catch {
+        errors.push(`${relativePackageDir} is missing spritesheet.webp.`);
+      }
+    }
+  }
+
+  for (const pet of catalogPets) {
     if (!pet.id || !PET_ID_PATTERN.test(pet.id)) {
       errors.push(`Invalid pet id: ${pet.id}`);
       continue;
@@ -143,4 +208,8 @@ export async function validateCatalog(root = packageRoot()) {
   }
 
   return { catalog, errors, warnings };
+}
+
+function toCatalogPath(value) {
+  return value.split(path.sep).join("/");
 }

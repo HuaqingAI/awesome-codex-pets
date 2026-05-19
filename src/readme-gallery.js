@@ -88,7 +88,7 @@ function renderPetTable(catalog, pet) {
   return `<table>
   <tr>
     <th>Name</th>
-    <td colspan="${colSpan}">${petName}${author ? ` · by ${author}` : ""} · ${escapeHtml(category)}</td>
+    <td colspan="${colSpan}">${petName}${author ? ` - by ${author}` : ""} - ${escapeHtml(category)}</td>
   </tr>
   <tr>
     <th>Install</th>
