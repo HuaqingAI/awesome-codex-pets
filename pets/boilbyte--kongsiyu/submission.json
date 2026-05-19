@@ -1,0 +1,30 @@
+{
+  "slug": "boilbyte--kongsiyu",
+  "pet_slug": "boilbyte",
+  "author_slug": "kongsiyu",
+  "name": "Boilbyte",
+  "author": "kongsiyu",
+  "author_handle": "kongsiyu",
+  "author_url": "https://github.com/kongsiyu",
+  "primary_category": "Mascots",
+  "tags": [
+    "dragon",
+    "coding",
+    "mascot",
+    "ember",
+    "terminal"
+  ],
+  "source_type": "original",
+  "source_url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/boilbyte--kongsiyu",
+  "license": "Original artwork; permission granted for inclusion in the awesome-codex-pets gallery.",
+  "description": "A compact ember-orange patch-drake who looks like a pragmatic coding tinkerer, with terminal-green accents and a tiny utility harness.",
+  "preview_image": "../../assets/previews/boilbyte--kongsiyu/idle.gif",
+  "codex_install": {
+    "pet_json": "pet.json",
+    "spritesheet": "spritesheet.webp"
+  },
+  "preview_assets": {
+    "contact_sheet": "../../assets/previews/boilbyte--kongsiyu/contact-sheet.png",
+    "gifs_dir": "../../assets/previews/boilbyte--kongsiyu"
+  }
+}

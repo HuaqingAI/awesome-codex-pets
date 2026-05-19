@@ -13,6 +13,11 @@
   ],
   "categories": [
     {
+      "id": "mascots",
+      "name": "Mascots",
+      "description": "Mascot-style pets for tools, teams, and products."
+    },
+    {
       "id": "anime-characters",
       "name": "Anime Characters",
       "description": "Character-inspired Codex pets."
@@ -28,17 +33,166 @@
       "description": "Original character pets from the community."
     },
     {
-      "id": "mascots",
-      "name": "Mascots",
-      "description": "Mascot-style pets for tools, teams, and products."
-    },
-    {
       "id": "pixel",
       "name": "Pixel Pets",
       "description": "Pixel-art pets and retro sprites."
     }
   ],
   "pets": [
+    {
+      "id": "boilbyte--kongsiyu",
+      "name": "Boilbyte",
+      "description": "A compact ember-orange patch-drake who looks like a pragmatic coding tinkerer, with terminal-green accents and a tiny utility harness.",
+      "category": "mascots",
+      "tags": [
+        "dragon",
+        "coding",
+        "mascot",
+        "ember",
+        "terminal"
+      ],
+      "aliases": [
+        "boilbyte"
+      ],
+      "author": {
+        "name": "kongsiyu",
+        "url": "https://github.com/kongsiyu"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/boilbyte--kongsiyu"
+    },
+    {
+      "id": "byteneko--huaqingai",
+      "name": "ByteNeko",
+      "description": "A tech-savvy chibi black cat mascot with blue goggles, headset, golden eyes, and glowing cyber tail lines.",
+      "category": "mascots",
+      "tags": [
+        "cat",
+        "chibi",
+        "tech",
+        "cyber",
+        "mascot",
+        "headset"
+      ],
+      "aliases": [
+        "byteneko"
+      ],
+      "author": {
+        "name": "HuaqingAI",
+        "url": "https://github.com/HuaqingAI"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/byteneko--huaqingai"
+    },
+    {
+      "id": "code-wisp--huaqingai",
+      "name": "Code Wisp",
+      "description": "A soft white hooded code-spirit Codex pet with cyan neon trim, blue eyes, tiny hands, and a floating ghost tail.",
+      "category": "mascots",
+      "tags": [
+        "code-spirit",
+        "mascot",
+        "coding",
+        "hooded",
+        "neon",
+        "ghost"
+      ],
+      "aliases": [
+        "code-wisp"
+      ],
+      "author": {
+        "name": "HuaqingAI",
+        "url": "https://github.com/HuaqingAI"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/code-wisp--huaqingai"
+    },
+    {
+      "id": "natural-selection--huaqingai",
+      "name": "Natural Selection",
+      "description": "A Three-Body-inspired miniature starship pet with blue engines, amber bridge lights, and compact work-state animations.",
+      "category": "mascots",
+      "tags": [
+        "spaceship",
+        "sci-fi",
+        "three-body",
+        "starship",
+        "mascot",
+        "codex"
+      ],
+      "aliases": [
+        "natural-selection"
+      ],
+      "author": {
+        "name": "HuaqingAI",
+        "url": "https://github.com/HuaqingAI"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/natural-selection--huaqingai"
+    },
+    {
+      "id": "neon-shell--huaqingai",
+      "name": "Neon Shell",
+      "description": "A compact black terminal-screen mascot with mint neon eyes, a dark hoodie, status lights, and a cursor-tail.",
+      "category": "mascots",
+      "tags": [
+        "terminal",
+        "robot",
+        "cyber",
+        "neon",
+        "mascot",
+        "codex"
+      ],
+      "aliases": [
+        "neon-shell"
+      ],
+      "author": {
+        "name": "HuaqingAI",
+        "url": "https://github.com/HuaqingAI"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/neon-shell--huaqingai"
+    },
+    {
+      "id": "sophon--huaqingai",
+      "name": "Sophon",
+      "description": "A Three-Body-inspired sophon pet that idles as a cybernetic proton sphere and shifts into a black-armored warrior for work states.",
+      "category": "mascots",
+      "tags": [
+        "sophon",
+        "three-body",
+        "sci-fi",
+        "proton",
+        "warrior",
+        "mascot",
+        "codex"
+      ],
+      "aliases": [
+        "sophon"
+      ],
+      "author": {
+        "name": "HuaqingAI",
+        "url": "https://github.com/HuaqingAI"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/sophon--huaqingai"
+    },
+    {
+      "id": "waterdrop-probe--huaqingai",
+      "name": "Waterdrop Probe",
+      "description": "A Three-Body-inspired waterdrop probe pet with mirror-black metallic skin, cyan sensor light, and compact probe-state animations.",
+      "category": "mascots",
+      "tags": [
+        "waterdrop",
+        "probe",
+        "sci-fi",
+        "three-body",
+        "mascot",
+        "codex"
+      ],
+      "aliases": [
+        "waterdrop-probe"
+      ],
+      "author": {
+        "name": "HuaqingAI",
+        "url": "https://github.com/HuaqingAI"
+      },
+      "url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/waterdrop-probe--huaqingai"
+    },
     {
       "id": "bocchi--lingxiaotian",
       "name": "Bocchi",

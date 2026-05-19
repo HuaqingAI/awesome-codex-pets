@@ -1,0 +1,31 @@
+{
+  "slug": "waterdrop-probe--huaqingai",
+  "pet_slug": "waterdrop-probe",
+  "author_slug": "huaqingai",
+  "name": "Waterdrop Probe",
+  "author": "HuaqingAI",
+  "author_handle": "huaqingai",
+  "author_url": "https://github.com/HuaqingAI",
+  "primary_category": "Mascots",
+  "tags": [
+    "waterdrop",
+    "probe",
+    "sci-fi",
+    "three-body",
+    "mascot",
+    "codex"
+  ],
+  "source_type": "fan-inspired original",
+  "source_url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/waterdrop-probe--huaqingai",
+  "license": "Original fan-inspired artwork; no official affiliation with The Three-Body Problem.",
+  "description": "A Three-Body-inspired waterdrop probe pet with mirror-black metallic skin, cyan sensor light, and compact probe-state animations.",
+  "preview_image": "../../assets/previews/waterdrop-probe--huaqingai/idle.gif",
+  "codex_install": {
+    "pet_json": "pet.json",
+    "spritesheet": "spritesheet.webp"
+  },
+  "preview_assets": {
+    "contact_sheet": "../../assets/previews/waterdrop-probe--huaqingai/contact-sheet.png",
+    "gifs_dir": "../../assets/previews/waterdrop-probe--huaqingai"
+  }
+}

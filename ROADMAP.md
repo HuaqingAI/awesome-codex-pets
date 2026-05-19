@@ -40,31 +40,40 @@ not stable yet.
 
 ## v0.3.0 - Codex-First Pet Development Workflow
 
-Adding pets should be optimized for people building pets with Codex itself.
-The preferred creation path should use Codex's `$hatch-pet` skill rather than
-reimplementing sprite generation in this repository.
+Adding pets should be optimized for repository development while keeping the
+actual pet creation path flexible. Codex's `$hatch-pet` skill is a recommended
+way to produce `pet.json` and `spritesheet.webp`, but this repository should
+accept any package that satisfies the Codex pet file contract.
 
 Planned `add-pet` workflow:
 
 ```bash
 codex-pets add-pet init
-codex-pets add-pet import <path>
+codex-pets add-pet import [path|pet-id]
 codex-pets add-pet finalize <pet-id>
 ```
 
 `add-pet init` should:
 
-- collect pet name, author, category, tags, source, and license metadata
-- create or update `pets/<pet-id>/submission.json`
-- generate a ready-to-use prompt for Codex that asks it to use `$hatch-pet`
-- explain the expected output files: `pet.json` and `spritesheet.webp`
+- create or update `.codex-pets/drafts/<pet-id>/submission.json`
+- collect the pet name and any known author/category/source metadata
+- reuse default author profiles from existing submissions when available
+- default `author_url` from `author_handle` when it is provided
+- allow tags, source, license, and description to be filled later
+- explain the expected import files: `pet.json` and `spritesheet.webp`
 
 `add-pet import <path>` should:
 
-- copy `pet.json` and `spritesheet.webp` from a hatch-pet output directory or
-  from `$CODEX_HOME/pets/<pet-id>`
+- copy `pet.json` and `spritesheet.webp` from a complete pet package,
+  a hatch-pet output directory, or `$CODEX_HOME/pets/<pet-id>`
+- default to `$CODEX_HOME/pets/<pet-id>` when a draft or pet id is provided and
+  no explicit path is passed
+- append the author slug when importing a Hatch Pet package whose generated id
+  does not already include one
+- expand `~` in explicit paths on platforms where the shell does not do it
 - validate the manifest and atlas dimensions
-- preserve source metadata and avoid overwriting unrelated pet packages
+- preserve source metadata from a draft when available
+- avoid overwriting unrelated pet packages unless `--force` is used
 
 `add-pet finalize <pet-id>` should:
 

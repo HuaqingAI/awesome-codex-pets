@@ -19,20 +19,36 @@ export const END_MARKER = "<!-- PET_CATALOG_END -->";
 
 export async function updateReadmeGallery({
   root = packageRoot(),
-  readmePath = path.join(root, "README.md")
+  readmePath = path.join(root, "README.md"),
+  lang = "en"
 } = {}) {
   const readme = await fs.readFile(readmePath, "utf8");
   const catalog = await readCatalog(root);
-  const gallery = renderGallery(catalog);
+  const gallery = renderGallery(catalog, { lang });
   const next = replaceBetweenMarkers(readme, gallery);
   await fs.writeFile(readmePath, next, "utf8");
   return { readmePath, petCount: (catalog.pets || []).length };
 }
 
-export function renderGallery(catalog) {
+export async function updateAllReadmeGalleries({ root = packageRoot() } = {}) {
+  const results = [];
+  results.push(await updateReadmeGallery({
+    root,
+    readmePath: path.join(root, "README.md"),
+    lang: "en"
+  }));
+  results.push(await updateReadmeGallery({
+    root,
+    readmePath: path.join(root, "README_zh.md"),
+    lang: "zh"
+  }));
+  return results;
+}
+
+export function renderGallery(catalog, { lang = "en" } = {}) {
   const pets = catalog.pets || [];
   if (pets.length === 0) {
-    return "_No pets have been added yet._";
+    return lang === "zh" ? "_还没有添加宠物。_" : "_No pets have been added yet._";
   }
 
   const categories = categoryMap(catalog);
@@ -52,15 +68,15 @@ export function renderGallery(catalog) {
     if (groupPets.length === 0) {
       continue;
     }
-    chunks.push(`### ${escapeMarkdown(categories.get(categoryId)?.name || categoryId)}`);
+    chunks.push(`### ${escapeMarkdown(categoryLabel(categories.get(categoryId)?.name || categoryId, lang))}`);
     for (const pet of groupPets) {
-      chunks.push(renderPetTable(catalog, pet));
+      chunks.push(renderPetTable(catalog, pet, { lang }));
     }
   }
   return chunks.join("\n\n");
 }
 
-function renderPetTable(catalog, pet) {
+function renderPetTable(catalog, pet, { lang = "en" } = {}) {
   const states = normalizeStateList(
     pet.previewStates || catalog.previewStates,
     README_PREVIEW_STATES
@@ -69,37 +85,37 @@ function renderPetTable(catalog, pet) {
   const rawBaseUrl = catalog.rawBaseUrl || "https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main";
   const packageName = catalog.packageName || "awesome-codex-pets";
   const author = renderAuthor(pet);
-  const category = categoryName(catalog, pet.category);
+  const category = categoryLabel(categoryName(catalog, pet.category), lang);
   const petName = pet.url
     ? `<a href="${escapeHtml(pet.url)}">${escapeHtml(pet.name)}</a>`
     : escapeHtml(pet.name);
   const installCommand = `npx ${packageName} install ${pet.id}`;
   const curlCommand = `curl -fsSL ${rawBaseUrl}/scripts/install-pet.sh | bash -s -- ${pet.id}`;
 
-  const actionHeaders = states.map((state) => `<th>${escapeHtml(state.label)}</th>`).join("");
+  const actionHeaders = states.map((state) => `<th>${escapeHtml(stateLabel(state, lang))}</th>`).join("");
   const previewCells = states
     .map((state) => {
       const src = previewPathForPet(pet, state.id);
-      const alt = `${pet.name} ${state.label}`;
+      const alt = `${pet.name} ${stateLabel(state, lang)}`;
       return `<td><img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" width="96" /></td>`;
     })
     .join("");
 
   return `<table>
   <tr>
-    <th>Name</th>
-    <td colspan="${colSpan}">${petName}${author ? ` - by ${author}` : ""} - ${escapeHtml(category)}</td>
+    <th>${label("name", lang)}</th>
+    <td colspan="${colSpan}">${petName}${author ? ` - ${label("by", lang)} ${author}` : ""} - ${escapeHtml(category)}</td>
   </tr>
   <tr>
-    <th>Install</th>
+    <th>${label("install", lang)}</th>
     <td colspan="${colSpan}"><code>${escapeHtml(installCommand)}</code><br/><code>${escapeHtml(curlCommand)}</code></td>
   </tr>
   <tr>
-    <th>Action</th>
+    <th>${label("action", lang)}</th>
     ${actionHeaders}
   </tr>
   <tr>
-    <th>Preview</th>
+    <th>${label("preview", lang)}</th>
     ${previewCells}
   </tr>
 </table>`;
@@ -137,4 +153,48 @@ function escapeHtml(value) {
 
 function escapeMarkdown(value) {
   return String(value).replaceAll("[", "\\[").replaceAll("]", "\\]");
+}
+
+function label(key, lang) {
+  const labels = {
+    name: ["Name", "名称"],
+    install: ["Install", "安装"],
+    action: ["Action", "动作"],
+    preview: ["Preview", "预览"],
+    by: ["by", "作者"]
+  };
+  const value = labels[key] || [key, key];
+  return lang === "zh" ? value[1] : value[0];
+}
+
+function categoryLabel(value, lang) {
+  if (lang !== "zh") {
+    return value;
+  }
+  const labels = new Map([
+    ["Mascots", "吉祥物"],
+    ["Anime Characters", "动漫角色"],
+    ["Animals", "动物"],
+    ["Original Characters", "原创角色"],
+    ["Pixel Pets", "像素宠物"]
+  ]);
+  return labels.get(value) || value;
+}
+
+function stateLabel(state, lang) {
+  if (lang !== "zh") {
+    return state.label;
+  }
+  const labels = new Map([
+    ["idle", "待机"],
+    ["waving", "挥手"],
+    ["running", "工作"],
+    ["waiting", "等待"],
+    ["review", "审阅"],
+    ["running-right", "向右移动"],
+    ["running-left", "向左移动"],
+    ["jumping", "跳跃"],
+    ["failed", "失败"]
+  ]);
+  return labels.get(state.id) || state.label;
 }

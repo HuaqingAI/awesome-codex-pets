@@ -1,0 +1,25 @@
+{
+  "slug": "natural-selection--huaqingai",
+  "pet_slug": "natural-selection",
+  "author_slug": "huaqingai",
+  "name": "Natural Selection",
+  "author": "HuaqingAI",
+  "author_handle": "huaqingai",
+  "author_url": "https://github.com/HuaqingAI",
+  "primary_category": "Mascots",
+  "tags": [
+    "spaceship",
+    "sci-fi",
+    "three-body",
+    "starship",
+    "mascot",
+    "codex"
+  ],
+  "source_type": "fan-inspired original",
+  "source_url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/natural-selection--huaqingai",
+  "license": "Original fan-inspired artwork; no official affiliation with The Three-Body Problem.",
+  "codex_install": {
+    "pet_json": "pet.json",
+    "spritesheet": "spritesheet.webp"
+  }
+}

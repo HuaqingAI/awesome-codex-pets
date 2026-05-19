@@ -7,6 +7,11 @@ import { packageRoot } from "../src/paths.js";
 
 const DEFAULT_CATEGORIES = [
   {
+    id: "mascots",
+    name: "Mascots",
+    description: "Mascot-style pets for tools, teams, and products."
+  },
+  {
     id: "anime-characters",
     name: "Anime Characters",
     description: "Character-inspired Codex pets."
@@ -20,11 +25,6 @@ const DEFAULT_CATEGORIES = [
     id: "original-characters",
     name: "Original Characters",
     description: "Original character pets from the community."
-  },
-  {
-    id: "mascots",
-    name: "Mascots",
-    description: "Mascot-style pets for tools, teams, and products."
   },
   {
     id: "pixel",

@@ -1,0 +1,7 @@
+{
+  "id": "waterdrop-probe--huaqingai",
+  "displayName": "Waterdrop Probe",
+  "description": "A Three-Body-inspired waterdrop probe pet with mirror-black metallic skin, cyan sensor light, and compact probe-state animations.",
+  "spritesheetPath": "spritesheet.webp",
+  "kind": "mascot"
+}

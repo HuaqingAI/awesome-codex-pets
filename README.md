@@ -1,5 +1,7 @@
 # Awesome Codex Pets
 
+[English](README.md) | [简体中文](README_zh.md)
+
 Ready-to-install pet packages for Codex Desktop, with a small `npx` CLI and
 scripts for catalog validation, preview GIF generation, and README gallery
 updates.
@@ -8,6 +10,9 @@ The catalog is generated from pet packages under `pets/`, then rendered into a
 README gallery with install commands and animated previews.
 
 ## Usage
+
+The CLI auto-detects your system language. You can override it with
+`--lang en`, `--lang zh`, or `AWESOME_CODEX_PETS_LANG`.
 
 List available pets:
 
@@ -43,6 +48,24 @@ Diagnose common activation problems:
 npx awesome-codex-pets doctor
 ```
 
+Start a pet contribution draft:
+
+```bash
+npx awesome-codex-pets add-pet init <pet-name> --author <author-or-profile>
+```
+
+Import a finished pet package or hatch-pet output:
+
+```bash
+npx awesome-codex-pets add-pet import --draft <pet-id>
+```
+
+Finalize generated catalog, previews, README gallery, and validation:
+
+```bash
+npx awesome-codex-pets add-pet finalize <pet-id>
+```
+
 Direct install from GitHub raw files:
 
 ```bash
@@ -58,6 +81,141 @@ best-effort; if it does not switch the visible pet, use the same UI path.
 ## Pet Catalog
 
 <!-- PET_CATALOG_START -->
+### Mascots
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/boilbyte--kongsiyu">Boilbyte</a> - by <a href="https://github.com/kongsiyu">@kongsiyu</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install boilbyte--kongsiyu</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- boilbyte--kongsiyu</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/boilbyte--kongsiyu/idle.gif" alt="Boilbyte Idle" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/waving.gif" alt="Boilbyte Waving" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/running.gif" alt="Boilbyte Running" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/waiting.gif" alt="Boilbyte Waiting" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/review.gif" alt="Boilbyte Review" width="96" /></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/byteneko--huaqingai">ByteNeko</a> - by <a href="https://github.com/HuaqingAI">@HuaqingAI</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install byteneko--huaqingai</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- byteneko--huaqingai</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/byteneko--huaqingai/idle.gif" alt="ByteNeko Idle" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/waving.gif" alt="ByteNeko Waving" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/running.gif" alt="ByteNeko Running" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/waiting.gif" alt="ByteNeko Waiting" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/review.gif" alt="ByteNeko Review" width="96" /></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/code-wisp--huaqingai">Code Wisp</a> - by <a href="https://github.com/HuaqingAI">@HuaqingAI</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install code-wisp--huaqingai</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- code-wisp--huaqingai</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/code-wisp--huaqingai/idle.gif" alt="Code Wisp Idle" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/waving.gif" alt="Code Wisp Waving" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/running.gif" alt="Code Wisp Running" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/waiting.gif" alt="Code Wisp Waiting" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/review.gif" alt="Code Wisp Review" width="96" /></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/natural-selection--huaqingai">Natural Selection</a> - by <a href="https://github.com/HuaqingAI">@HuaqingAI</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install natural-selection--huaqingai</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- natural-selection--huaqingai</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/natural-selection--huaqingai/idle.gif" alt="Natural Selection Idle" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/waving.gif" alt="Natural Selection Waving" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/running.gif" alt="Natural Selection Running" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/waiting.gif" alt="Natural Selection Waiting" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/review.gif" alt="Natural Selection Review" width="96" /></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/neon-shell--huaqingai">Neon Shell</a> - by <a href="https://github.com/HuaqingAI">@HuaqingAI</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install neon-shell--huaqingai</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- neon-shell--huaqingai</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/neon-shell--huaqingai/idle.gif" alt="Neon Shell Idle" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/waving.gif" alt="Neon Shell Waving" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/running.gif" alt="Neon Shell Running" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/waiting.gif" alt="Neon Shell Waiting" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/review.gif" alt="Neon Shell Review" width="96" /></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/sophon--huaqingai">Sophon</a> - by <a href="https://github.com/HuaqingAI">@HuaqingAI</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install sophon--huaqingai</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- sophon--huaqingai</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/sophon--huaqingai/idle.gif" alt="Sophon Idle" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/waving.gif" alt="Sophon Waving" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/running.gif" alt="Sophon Running" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/waiting.gif" alt="Sophon Waiting" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/review.gif" alt="Sophon Review" width="96" /></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/waterdrop-probe--huaqingai">Waterdrop Probe</a> - by <a href="https://github.com/HuaqingAI">@HuaqingAI</a> - Mascots</td>
+  </tr>
+  <tr>
+    <th>Install</th>
+    <td colspan="5"><code>npx awesome-codex-pets install waterdrop-probe--huaqingai</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- waterdrop-probe--huaqingai</code></td>
+  </tr>
+  <tr>
+    <th>Action</th>
+    <th>Idle</th><th>Waving</th><th>Running</th><th>Waiting</th><th>Review</th>
+  </tr>
+  <tr>
+    <th>Preview</th>
+    <td><img src="assets/previews/waterdrop-probe--huaqingai/idle.gif" alt="Waterdrop Probe Idle" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/waving.gif" alt="Waterdrop Probe Waving" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/running.gif" alt="Waterdrop Probe Running" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/waiting.gif" alt="Waterdrop Probe Waiting" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/review.gif" alt="Waterdrop Probe Review" width="96" /></td>
+  </tr>
+</table>
+
 ### Anime Characters
 
 <table>
@@ -318,20 +476,25 @@ Add a pet package under `pets/<pet-id>/`:
 
 ```text
 pets/<pet-id>/
+  submission.json
   pet.json
   spritesheet.webp
 ```
 
-Then add `submission.json` metadata when available, sync the catalog, generate
-previews, update the README gallery, and validate:
+For new contributions, prefer the guided local workflow. `init` writes a draft
+under `.codex-pets/drafts/` so an incomplete pet does not break validation.
+`import` creates the real `pets/<pet-id>/` package only after `pet.json` and
+`spritesheet.webp` are available. `finalize` syncs generated files:
 
 ```bash
 npm install
-npm run catalog:sync
-npm run previews
-npm run readme
-npm run validate
+npx awesome-codex-pets add-pet init <pet-name> --author <author-or-profile>
+npx awesome-codex-pets add-pet import --draft <pet-id>
+npx awesome-codex-pets add-pet finalize <pet-id>
 ```
+
+Manual maintenance still works with `npm run catalog:sync`, `npm run previews`,
+`npm run readme`, and `npm run validate`.
 
 ## Release Workflow
 
