@@ -1,9 +1,11 @@
 #!/usr/bin/env node
-import { updateReadmeGallery } from "../src/readme-gallery.js";
+import { updateAllReadmeGalleries } from "../src/readme-gallery.js";
 
-updateReadmeGallery()
-  .then((result) => {
-    console.log(`Updated ${result.readmePath} (${result.petCount} pet(s)).`);
+updateAllReadmeGalleries()
+  .then((results) => {
+    for (const result of results) {
+      console.log(`Updated ${result.readmePath} (${result.petCount} pet(s)).`);
+    }
   })
   .catch((error) => {
     console.error(error.message);

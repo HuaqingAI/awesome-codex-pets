@@ -1,0 +1,32 @@
+{
+  "slug": "sophon--huaqingai",
+  "pet_slug": "sophon",
+  "author_slug": "huaqingai",
+  "name": "Sophon",
+  "author": "HuaqingAI",
+  "author_handle": "huaqingai",
+  "author_url": "https://github.com/HuaqingAI",
+  "primary_category": "Mascots",
+  "tags": [
+    "sophon",
+    "three-body",
+    "sci-fi",
+    "proton",
+    "warrior",
+    "mascot",
+    "codex"
+  ],
+  "source_type": "fan-inspired original",
+  "source_url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/sophon--huaqingai",
+  "license": "Original fan-inspired artwork; no official affiliation with The Three-Body Problem.",
+  "description": "A Three-Body-inspired sophon pet that idles as a cybernetic proton sphere and shifts into a black-armored warrior for work states.",
+  "preview_image": "../../assets/previews/sophon--huaqingai/idle.gif",
+  "codex_install": {
+    "pet_json": "pet.json",
+    "spritesheet": "spritesheet.webp"
+  },
+  "preview_assets": {
+    "contact_sheet": "../../assets/previews/sophon--huaqingai/contact-sheet.png",
+    "gifs_dir": "../../assets/previews/sophon--huaqingai"
+  }
+}

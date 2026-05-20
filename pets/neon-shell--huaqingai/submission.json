@@ -1,0 +1,31 @@
+{
+  "slug": "neon-shell--huaqingai",
+  "pet_slug": "neon-shell",
+  "author_slug": "huaqingai",
+  "name": "Neon Shell",
+  "author": "HuaqingAI",
+  "author_handle": "huaqingai",
+  "author_url": "https://github.com/HuaqingAI",
+  "primary_category": "Mascots",
+  "tags": [
+    "terminal",
+    "robot",
+    "cyber",
+    "neon",
+    "mascot",
+    "codex"
+  ],
+  "source_type": "AI-generated from user-provided reference image",
+  "source_url": "https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/neon-shell--huaqingai",
+  "license": "User-provided reference / generated derivative",
+  "description": "A compact black terminal-screen mascot with mint neon eyes, a dark hoodie, status lights, and a cursor-tail.",
+  "preview_image": "../../assets/previews/neon-shell--huaqingai/idle.gif",
+  "codex_install": {
+    "pet_json": "pet.json",
+    "spritesheet": "spritesheet.webp"
+  },
+  "preview_assets": {
+    "contact_sheet": "../../assets/previews/neon-shell--huaqingai/contact-sheet.png",
+    "gifs_dir": "../../assets/previews/neon-shell--huaqingai"
+  }
+}
