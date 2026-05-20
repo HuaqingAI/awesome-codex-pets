@@ -5,7 +5,9 @@
 这是一个 Codex Desktop 宠物仓库，提供可直接安装的宠物包、`npx`
 命令行工具、目录校验、预览 GIF 生成和 README 图鉴更新脚本。
 
-目录由 `pets/` 下的宠物包生成，并渲染为带安装命令和动画预览的图鉴。
+npm 包保持轻量：只携带 CLI 和目录元数据，执行 `install` 时再从 GitHub raw
+文件按需下载被选中的宠物资源。源码仓库仍保留 `pets/` 下的完整宠物包和
+`assets/previews/` 下的预览 GIF。
 
 ## 使用
 
@@ -24,9 +26,9 @@ npx awesome-codex-pets list
 npx awesome-codex-pets install <pet-id>
 ```
 
-安装命令会显示安装位置和下一步操作。安装后请打开 Codex Desktop ->
-File -> Settings -> Appearance -> Pet，选择刚安装的宠物，然后唤醒 Codex
-Desktop。如果选择后仍未显示，再重启 Codex Desktop。
+安装命令只会下载选中的宠物资源，并显示安装位置和下一步操作。安装后请打开
+Codex Desktop -> File -> Settings -> Appearance -> Pet，选择刚安装的宠物，
+然后唤醒 Codex Desktop。如果选择后仍未显示，再重启 Codex Desktop。
 
 也可以尝试自动应用宠物：
 
@@ -91,7 +93,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/boilbyte--kongsiyu/idle.gif" alt="Boilbyte 待机" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/waving.gif" alt="Boilbyte 挥手" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/running.gif" alt="Boilbyte 工作" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/waiting.gif" alt="Boilbyte 等待" width="96" /></td><td><img src="assets/previews/boilbyte--kongsiyu/review.gif" alt="Boilbyte 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/boilbyte--kongsiyu/idle.gif" alt="Boilbyte 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/boilbyte--kongsiyu/waving.gif" alt="Boilbyte 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/boilbyte--kongsiyu/running.gif" alt="Boilbyte 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/boilbyte--kongsiyu/waiting.gif" alt="Boilbyte 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/boilbyte--kongsiyu/review.gif" alt="Boilbyte 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -110,7 +112,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/byteneko--huaqingai/idle.gif" alt="ByteNeko 待机" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/waving.gif" alt="ByteNeko 挥手" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/running.gif" alt="ByteNeko 工作" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/waiting.gif" alt="ByteNeko 等待" width="96" /></td><td><img src="assets/previews/byteneko--huaqingai/review.gif" alt="ByteNeko 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/byteneko--huaqingai/idle.gif" alt="ByteNeko 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/byteneko--huaqingai/waving.gif" alt="ByteNeko 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/byteneko--huaqingai/running.gif" alt="ByteNeko 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/byteneko--huaqingai/waiting.gif" alt="ByteNeko 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/byteneko--huaqingai/review.gif" alt="ByteNeko 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -129,7 +131,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/code-wisp--huaqingai/idle.gif" alt="Code Wisp 待机" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/waving.gif" alt="Code Wisp 挥手" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/running.gif" alt="Code Wisp 工作" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/waiting.gif" alt="Code Wisp 等待" width="96" /></td><td><img src="assets/previews/code-wisp--huaqingai/review.gif" alt="Code Wisp 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/code-wisp--huaqingai/idle.gif" alt="Code Wisp 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/code-wisp--huaqingai/waving.gif" alt="Code Wisp 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/code-wisp--huaqingai/running.gif" alt="Code Wisp 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/code-wisp--huaqingai/waiting.gif" alt="Code Wisp 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/code-wisp--huaqingai/review.gif" alt="Code Wisp 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -148,7 +150,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/natural-selection--huaqingai/idle.gif" alt="Natural Selection 待机" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/waving.gif" alt="Natural Selection 挥手" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/running.gif" alt="Natural Selection 工作" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/waiting.gif" alt="Natural Selection 等待" width="96" /></td><td><img src="assets/previews/natural-selection--huaqingai/review.gif" alt="Natural Selection 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/natural-selection--huaqingai/idle.gif" alt="Natural Selection 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/natural-selection--huaqingai/waving.gif" alt="Natural Selection 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/natural-selection--huaqingai/running.gif" alt="Natural Selection 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/natural-selection--huaqingai/waiting.gif" alt="Natural Selection 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/natural-selection--huaqingai/review.gif" alt="Natural Selection 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -167,7 +169,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/neon-shell--huaqingai/idle.gif" alt="Neon Shell 待机" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/waving.gif" alt="Neon Shell 挥手" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/running.gif" alt="Neon Shell 工作" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/waiting.gif" alt="Neon Shell 等待" width="96" /></td><td><img src="assets/previews/neon-shell--huaqingai/review.gif" alt="Neon Shell 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/neon-shell--huaqingai/idle.gif" alt="Neon Shell 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/neon-shell--huaqingai/waving.gif" alt="Neon Shell 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/neon-shell--huaqingai/running.gif" alt="Neon Shell 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/neon-shell--huaqingai/waiting.gif" alt="Neon Shell 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/neon-shell--huaqingai/review.gif" alt="Neon Shell 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -186,7 +188,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/sophon--huaqingai/idle.gif" alt="Sophon 待机" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/waving.gif" alt="Sophon 挥手" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/running.gif" alt="Sophon 工作" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/waiting.gif" alt="Sophon 等待" width="96" /></td><td><img src="assets/previews/sophon--huaqingai/review.gif" alt="Sophon 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/sophon--huaqingai/idle.gif" alt="Sophon 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/sophon--huaqingai/waving.gif" alt="Sophon 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/sophon--huaqingai/running.gif" alt="Sophon 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/sophon--huaqingai/waiting.gif" alt="Sophon 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/sophon--huaqingai/review.gif" alt="Sophon 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -205,7 +207,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/waterdrop-probe--huaqingai/idle.gif" alt="Waterdrop Probe 待机" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/waving.gif" alt="Waterdrop Probe 挥手" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/running.gif" alt="Waterdrop Probe 工作" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/waiting.gif" alt="Waterdrop Probe 等待" width="96" /></td><td><img src="assets/previews/waterdrop-probe--huaqingai/review.gif" alt="Waterdrop Probe 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/waterdrop-probe--huaqingai/idle.gif" alt="Waterdrop Probe 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/waterdrop-probe--huaqingai/waving.gif" alt="Waterdrop Probe 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/waterdrop-probe--huaqingai/running.gif" alt="Waterdrop Probe 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/waterdrop-probe--huaqingai/waiting.gif" alt="Waterdrop Probe 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/waterdrop-probe--huaqingai/review.gif" alt="Waterdrop Probe 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -226,7 +228,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/bocchi--lingxiaotian/idle.gif" alt="Bocchi 待机" width="96" /></td><td><img src="assets/previews/bocchi--lingxiaotian/waving.gif" alt="Bocchi 挥手" width="96" /></td><td><img src="assets/previews/bocchi--lingxiaotian/running.gif" alt="Bocchi 工作" width="96" /></td><td><img src="assets/previews/bocchi--lingxiaotian/waiting.gif" alt="Bocchi 等待" width="96" /></td><td><img src="assets/previews/bocchi--lingxiaotian/review.gif" alt="Bocchi 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/bocchi--lingxiaotian/idle.gif" alt="Bocchi 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/bocchi--lingxiaotian/waving.gif" alt="Bocchi 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/bocchi--lingxiaotian/running.gif" alt="Bocchi 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/bocchi--lingxiaotian/waiting.gif" alt="Bocchi 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/bocchi--lingxiaotian/review.gif" alt="Bocchi 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -245,7 +247,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/dnf-female-ammo--qunboo/idle.gif" alt="女弹药Q 待机" width="96" /></td><td><img src="assets/previews/dnf-female-ammo--qunboo/waving.gif" alt="女弹药Q 挥手" width="96" /></td><td><img src="assets/previews/dnf-female-ammo--qunboo/running.gif" alt="女弹药Q 工作" width="96" /></td><td><img src="assets/previews/dnf-female-ammo--qunboo/waiting.gif" alt="女弹药Q 等待" width="96" /></td><td><img src="assets/previews/dnf-female-ammo--qunboo/review.gif" alt="女弹药Q 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/dnf-female-ammo--qunboo/idle.gif" alt="女弹药Q 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/dnf-female-ammo--qunboo/waving.gif" alt="女弹药Q 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/dnf-female-ammo--qunboo/running.gif" alt="女弹药Q 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/dnf-female-ammo--qunboo/waiting.gif" alt="女弹药Q 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/dnf-female-ammo--qunboo/review.gif" alt="女弹药Q 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -264,7 +266,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/firefly--lingxiaotian/idle.gif" alt="Firefly 待机" width="96" /></td><td><img src="assets/previews/firefly--lingxiaotian/waving.gif" alt="Firefly 挥手" width="96" /></td><td><img src="assets/previews/firefly--lingxiaotian/running.gif" alt="Firefly 工作" width="96" /></td><td><img src="assets/previews/firefly--lingxiaotian/waiting.gif" alt="Firefly 等待" width="96" /></td><td><img src="assets/previews/firefly--lingxiaotian/review.gif" alt="Firefly 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/firefly--lingxiaotian/idle.gif" alt="Firefly 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/firefly--lingxiaotian/waving.gif" alt="Firefly 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/firefly--lingxiaotian/running.gif" alt="Firefly 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/firefly--lingxiaotian/waiting.gif" alt="Firefly 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/firefly--lingxiaotian/review.gif" alt="Firefly 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -283,7 +285,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/frieren--lingxiaotian/idle.gif" alt="Frieren 待机" width="96" /></td><td><img src="assets/previews/frieren--lingxiaotian/waving.gif" alt="Frieren 挥手" width="96" /></td><td><img src="assets/previews/frieren--lingxiaotian/running.gif" alt="Frieren 工作" width="96" /></td><td><img src="assets/previews/frieren--lingxiaotian/waiting.gif" alt="Frieren 等待" width="96" /></td><td><img src="assets/previews/frieren--lingxiaotian/review.gif" alt="Frieren 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/frieren--lingxiaotian/idle.gif" alt="Frieren 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/frieren--lingxiaotian/waving.gif" alt="Frieren 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/frieren--lingxiaotian/running.gif" alt="Frieren 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/frieren--lingxiaotian/waiting.gif" alt="Frieren 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/frieren--lingxiaotian/review.gif" alt="Frieren 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -302,7 +304,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/mahiro--lingxiaotian/idle.gif" alt="Mahiro 待机" width="96" /></td><td><img src="assets/previews/mahiro--lingxiaotian/waving.gif" alt="Mahiro 挥手" width="96" /></td><td><img src="assets/previews/mahiro--lingxiaotian/running.gif" alt="Mahiro 工作" width="96" /></td><td><img src="assets/previews/mahiro--lingxiaotian/waiting.gif" alt="Mahiro 等待" width="96" /></td><td><img src="assets/previews/mahiro--lingxiaotian/review.gif" alt="Mahiro 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mahiro--lingxiaotian/idle.gif" alt="Mahiro 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mahiro--lingxiaotian/waving.gif" alt="Mahiro 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mahiro--lingxiaotian/running.gif" alt="Mahiro 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mahiro--lingxiaotian/waiting.gif" alt="Mahiro 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mahiro--lingxiaotian/review.gif" alt="Mahiro 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -321,7 +323,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/mikoto--lingxiaotian/idle.gif" alt="Mikoto 待机" width="96" /></td><td><img src="assets/previews/mikoto--lingxiaotian/waving.gif" alt="Mikoto 挥手" width="96" /></td><td><img src="assets/previews/mikoto--lingxiaotian/running.gif" alt="Mikoto 工作" width="96" /></td><td><img src="assets/previews/mikoto--lingxiaotian/waiting.gif" alt="Mikoto 等待" width="96" /></td><td><img src="assets/previews/mikoto--lingxiaotian/review.gif" alt="Mikoto 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mikoto--lingxiaotian/idle.gif" alt="Mikoto 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mikoto--lingxiaotian/waving.gif" alt="Mikoto 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mikoto--lingxiaotian/running.gif" alt="Mikoto 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mikoto--lingxiaotian/waiting.gif" alt="Mikoto 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/mikoto--lingxiaotian/review.gif" alt="Mikoto 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -340,7 +342,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/miku--lingxiaotian/idle.gif" alt="Miku 待机" width="96" /></td><td><img src="assets/previews/miku--lingxiaotian/waving.gif" alt="Miku 挥手" width="96" /></td><td><img src="assets/previews/miku--lingxiaotian/running.gif" alt="Miku 工作" width="96" /></td><td><img src="assets/previews/miku--lingxiaotian/waiting.gif" alt="Miku 等待" width="96" /></td><td><img src="assets/previews/miku--lingxiaotian/review.gif" alt="Miku 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/miku--lingxiaotian/idle.gif" alt="Miku 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/miku--lingxiaotian/waving.gif" alt="Miku 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/miku--lingxiaotian/running.gif" alt="Miku 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/miku--lingxiaotian/waiting.gif" alt="Miku 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/miku--lingxiaotian/review.gif" alt="Miku 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -359,7 +361,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/paimon--lingxiaotian/idle.gif" alt="Paimon 待机" width="96" /></td><td><img src="assets/previews/paimon--lingxiaotian/waving.gif" alt="Paimon 挥手" width="96" /></td><td><img src="assets/previews/paimon--lingxiaotian/running.gif" alt="Paimon 工作" width="96" /></td><td><img src="assets/previews/paimon--lingxiaotian/waiting.gif" alt="Paimon 等待" width="96" /></td><td><img src="assets/previews/paimon--lingxiaotian/review.gif" alt="Paimon 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/paimon--lingxiaotian/idle.gif" alt="Paimon 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/paimon--lingxiaotian/waving.gif" alt="Paimon 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/paimon--lingxiaotian/running.gif" alt="Paimon 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/paimon--lingxiaotian/waiting.gif" alt="Paimon 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/paimon--lingxiaotian/review.gif" alt="Paimon 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -378,7 +380,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/reimu--lingxiaotian/idle.gif" alt="Reimu 待机" width="96" /></td><td><img src="assets/previews/reimu--lingxiaotian/waving.gif" alt="Reimu 挥手" width="96" /></td><td><img src="assets/previews/reimu--lingxiaotian/running.gif" alt="Reimu 工作" width="96" /></td><td><img src="assets/previews/reimu--lingxiaotian/waiting.gif" alt="Reimu 等待" width="96" /></td><td><img src="assets/previews/reimu--lingxiaotian/review.gif" alt="Reimu 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/reimu--lingxiaotian/idle.gif" alt="Reimu 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/reimu--lingxiaotian/waving.gif" alt="Reimu 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/reimu--lingxiaotian/running.gif" alt="Reimu 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/reimu--lingxiaotian/waiting.gif" alt="Reimu 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/reimu--lingxiaotian/review.gif" alt="Reimu 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -399,7 +401,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/becky--natewanggg/idle.gif" alt="Becky 待机" width="96" /></td><td><img src="assets/previews/becky--natewanggg/waving.gif" alt="Becky 挥手" width="96" /></td><td><img src="assets/previews/becky--natewanggg/running.gif" alt="Becky 工作" width="96" /></td><td><img src="assets/previews/becky--natewanggg/waiting.gif" alt="Becky 等待" width="96" /></td><td><img src="assets/previews/becky--natewanggg/review.gif" alt="Becky 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/becky--natewanggg/idle.gif" alt="Becky 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/becky--natewanggg/waving.gif" alt="Becky 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/becky--natewanggg/running.gif" alt="Becky 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/becky--natewanggg/waiting.gif" alt="Becky 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/becky--natewanggg/review.gif" alt="Becky 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -418,7 +420,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/fleta--natewanggg/idle.gif" alt="Fleta 待机" width="96" /></td><td><img src="assets/previews/fleta--natewanggg/waving.gif" alt="Fleta 挥手" width="96" /></td><td><img src="assets/previews/fleta--natewanggg/running.gif" alt="Fleta 工作" width="96" /></td><td><img src="assets/previews/fleta--natewanggg/waiting.gif" alt="Fleta 等待" width="96" /></td><td><img src="assets/previews/fleta--natewanggg/review.gif" alt="Fleta 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/fleta--natewanggg/idle.gif" alt="Fleta 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/fleta--natewanggg/waving.gif" alt="Fleta 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/fleta--natewanggg/running.gif" alt="Fleta 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/fleta--natewanggg/waiting.gif" alt="Fleta 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/fleta--natewanggg/review.gif" alt="Fleta 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -437,7 +439,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/teddy--danieloleary/idle.gif" alt="Teddy 待机" width="96" /></td><td><img src="assets/previews/teddy--danieloleary/waving.gif" alt="Teddy 挥手" width="96" /></td><td><img src="assets/previews/teddy--danieloleary/running.gif" alt="Teddy 工作" width="96" /></td><td><img src="assets/previews/teddy--danieloleary/waiting.gif" alt="Teddy 等待" width="96" /></td><td><img src="assets/previews/teddy--danieloleary/review.gif" alt="Teddy 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/teddy--danieloleary/idle.gif" alt="Teddy 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/teddy--danieloleary/waving.gif" alt="Teddy 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/teddy--danieloleary/running.gif" alt="Teddy 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/teddy--danieloleary/waiting.gif" alt="Teddy 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/teddy--danieloleary/review.gif" alt="Teddy 审阅" width="96" /></td>
   </tr>
 </table>
 
@@ -458,7 +460,7 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
   <tr>
     <th>预览</th>
-    <td><img src="assets/previews/night-neko--netizenxuan/idle.gif" alt="Night Neko 待机" width="96" /></td><td><img src="assets/previews/night-neko--netizenxuan/waving.gif" alt="Night Neko 挥手" width="96" /></td><td><img src="assets/previews/night-neko--netizenxuan/running.gif" alt="Night Neko 工作" width="96" /></td><td><img src="assets/previews/night-neko--netizenxuan/waiting.gif" alt="Night Neko 等待" width="96" /></td><td><img src="assets/previews/night-neko--netizenxuan/review.gif" alt="Night Neko 审阅" width="96" /></td>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/night-neko--netizenxuan/idle.gif" alt="Night Neko 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/night-neko--netizenxuan/waving.gif" alt="Night Neko 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/night-neko--netizenxuan/running.gif" alt="Night Neko 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/night-neko--netizenxuan/waiting.gif" alt="Night Neko 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/night-neko--netizenxuan/review.gif" alt="Night Neko 审阅" width="96" /></td>
   </tr>
 </table>
 <!-- PET_CATALOG_END -->
@@ -517,7 +519,8 @@ git push origin main --follow-tags
 
 发布 workflow 要求 tag 与 `package.json` 版本完全匹配，例如 `v0.1.0`。
 它会运行 `npm ci`、`npm run build`，检查生成文件是否已提交，使用 provenance
-发布到 npm，并创建 GitHub Release。
+发布到 npm，并创建 GitHub Release。宠物 spritesheet 和预览 GIF 不打进 npm
+包；CLI 会使用 `catalog.rawBaseUrl` 在安装时从 GitHub 按需下载选中的宠物资源。
 
 预览生成器遵循 Codex atlas 约定：`1536x1872`、`8x9` 网格、`192x208`
 单元格、透明背景。它会为每个状态写入一个 GIF 到

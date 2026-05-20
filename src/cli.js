@@ -417,6 +417,9 @@ function printInstallResult(result, { showNextStep = false, lang = "en" } = {}) 
     item(text(lang, "Status", "状态"), result.repaired
       ? text(lang, "Repaired installation", "已修复安装")
       : text(lang, "Installed", "已安装"));
+    item(text(lang, "Source", "来源"), result.source === "remote"
+      ? text(lang, "Downloaded from GitHub", "已从 GitHub 下载")
+      : text(lang, "Local package", "本地包"));
     item(text(lang, "Location", "位置"), result.targetDir);
     if (showNextStep) {
       printEnableCommand(result.pet.id, lang);

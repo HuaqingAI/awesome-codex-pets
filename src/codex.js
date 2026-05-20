@@ -78,12 +78,6 @@ export async function installPet({ root, catalog, petId, codexHome, force = fals
     throw new Error(`Pet not found in catalog: ${petId}`);
   }
 
-  const sourceDir = petPackagePath(root, pet);
-  const sourceManifestPath = path.join(sourceDir, "pet.json");
-  const sourceSpritesheetPath = path.join(sourceDir, "spritesheet.webp");
-  await fs.access(sourceManifestPath);
-  await fs.access(sourceSpritesheetPath);
-
   const resolvedHome = resolveCodexHome(codexHome);
   const targetRoot = petsDir(resolvedHome);
   const targetDir = path.join(targetRoot, pet.id);
@@ -118,17 +112,30 @@ export async function installPet({ root, catalog, petId, codexHome, force = fals
     };
   }
 
+  const source = await resolveInstallSource({ root, catalog, pet });
   await fs.mkdir(targetRoot, { recursive: true });
-  if (existed) {
-    await fs.rm(targetDir, { recursive: true, force: true });
+  const tempDir = path.join(targetRoot, `.${pet.id}.tmp-${process.pid}-${Date.now()}`);
+  assertInside(targetRoot, tempDir);
+  await fs.rm(tempDir, { recursive: true, force: true });
+  try {
+    await fs.mkdir(tempDir, { recursive: true });
+    await fs.writeFile(path.join(tempDir, "pet.json"), source.manifest);
+    await fs.writeFile(path.join(tempDir, "spritesheet.webp"), source.spritesheet);
+    if (existed) {
+      await fs.rm(targetDir, { recursive: true, force: true });
+    }
+    await fs.rename(tempDir, targetDir);
+  } catch (error) {
+    await fs.rm(tempDir, { recursive: true, force: true });
+    throw error;
   }
-  await fs.cp(sourceDir, targetDir, { recursive: true, force: true });
 
   return {
     pet,
     installed: true,
     skipped: false,
     repaired: existed && !complete && !force,
+    source: source.kind,
     targetDir
   };
 }
@@ -438,4 +445,59 @@ function petStateValueForKey(key, petId) {
     return `custom:${petId}`;
   }
   return petId;
+}
+
+async function resolveInstallSource({ root, catalog, pet }) {
+  const local = await readLocalPetPackage({ root, pet });
+  if (local) {
+    return local;
+  }
+  return fetchRemotePetPackage({ catalog, pet });
+}
+
+async function readLocalPetPackage({ root, pet }) {
+  const sourceDir = petPackagePath(root, pet);
+  try {
+    const [manifest, spritesheet] = await Promise.all([
+      fs.readFile(path.join(sourceDir, "pet.json")),
+      fs.readFile(path.join(sourceDir, "spritesheet.webp"))
+    ]);
+    return { kind: "local", manifest, spritesheet };
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return null;
+    }
+    throw error;
+  }
+}
+
+async function fetchRemotePetPackage({ catalog, pet }) {
+  if (typeof fetch !== "function") {
+    throw new Error("Remote pet install requires Node.js fetch support. Use Node.js 20 or newer.");
+  }
+  const rawBaseUrl = String(catalog.rawBaseUrl || "").replace(/\/+$/, "");
+  if (!rawBaseUrl) {
+    throw new Error(`Pet ${pet.id} is not bundled and catalog.rawBaseUrl is missing.`);
+  }
+
+  const packagePath = String(pet.packagePath || `pets/${pet.id}`).replace(/^\/+|\/+$/g, "");
+  const baseUrl = `${rawBaseUrl}/${packagePath}`;
+  const [manifest, spritesheet] = await Promise.all([
+    fetchBytes(`${baseUrl}/pet.json`),
+    fetchBytes(`${baseUrl}/spritesheet.webp`)
+  ]);
+  return { kind: "remote", manifest, spritesheet };
+}
+
+async function fetchBytes(url) {
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (error) {
+    throw new Error(`Failed to download ${url}: ${error.message}`);
+  }
+  if (!response.ok) {
+    throw new Error(`Failed to download ${url}: HTTP ${response.status} ${response.statusText}`);
+  }
+  return Buffer.from(await response.arrayBuffer());
 }

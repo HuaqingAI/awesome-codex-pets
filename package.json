@@ -1,22 +1,21 @@
 {
   "name": "awesome-codex-pets",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Ready-to-install Codex desktop pets plus catalog, preview, and installer tooling.",
   "type": "module",
   "bin": {
-    "awesome-codex-pets": "./bin/awesome-codex-pets.js",
-    "codex-pets": "./bin/awesome-codex-pets.js"
+    "awesome-codex-pets": "bin/awesome-codex-pets.js",
+    "codex-pets": "bin/awesome-codex-pets.js"
   },
   "files": [
-    "assets/previews",
     "bin",
     "catalog",
     "docs",
-    "pets",
     "schema",
     "scripts",
     "src",
     "README.md",
+    "README_zh.md",
     "LICENSE"
   ],
   "scripts": {
@@ -36,7 +35,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/HuaqingAI/awesome-codex-pets"
+    "url": "git+https://github.com/HuaqingAI/awesome-codex-pets.git"
   },
   "license": "MIT",
   "engines": {

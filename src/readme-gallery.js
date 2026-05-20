@@ -95,7 +95,7 @@ function renderPetTable(catalog, pet, { lang = "en" } = {}) {
   const actionHeaders = states.map((state) => `<th>${escapeHtml(stateLabel(state, lang))}</th>`).join("");
   const previewCells = states
     .map((state) => {
-      const src = previewPathForPet(pet, state.id);
+      const src = `${rawBaseUrl}/${previewPathForPet(pet, state.id)}`;
       const alt = `${pet.name} ${stateLabel(state, lang)}`;
       return `<td><img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" width="96" /></td>`;
     })
