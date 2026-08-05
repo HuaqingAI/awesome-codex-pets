@@ -384,6 +384,25 @@ Codex 会从 `${CODEX_HOME:-$HOME/.codex}/pets/<pet-id>` 加载自定义宠物�
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th>名称</th>
+    <td colspan="5"><a href="https://github.com/HuaqingAI/awesome-codex-pets/tree/main/pets/chotu--makriman">Chotu</a> - 作者 <a href="https://github.com/makriman">@makriman</a> - 动漫角色</td>
+  </tr>
+  <tr>
+    <th>安装</th>
+    <td colspan="5"><code>npx awesome-codex-pets install chotu--makriman</code><br/><code>curl -fsSL https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/scripts/install-pet.sh | bash -s -- chotu--makriman</code></td>
+  </tr>
+  <tr>
+    <th>动作</th>
+    <th>待机</th><th>挥手</th><th>工作</th><th>等待</th><th>审阅</th>
+  </tr>
+  <tr>
+    <th>预览</th>
+    <td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/chotu--makriman/idle.gif" alt="Chotu 待机" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/chotu--makriman/waving.gif" alt="Chotu 挥手" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/chotu--makriman/running.gif" alt="Chotu 工作" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/chotu--makriman/waiting.gif" alt="Chotu 等待" width="96" /></td><td><img src="https://raw.githubusercontent.com/huaqingai/awesome-codex-pets/main/assets/previews/chotu--makriman/review.gif" alt="Chotu 审阅" width="96" /></td>
+  </tr>
+</table>
+
 ### 动物
 
 <table>
