@@ -215,6 +215,27 @@
       "url": "https://github.com/huaqingai/awesome-codex-pets/tree/main/pets/bocchi--lingxiaotian"
     },
     {
+      "id": "chotu--makriman",
+      "name": "Chotu",
+      "description": "A cheerful, brave young hero who keeps you company while you work.",
+      "category": "anime-characters",
+      "tags": [
+        "animation",
+        "kids",
+        "hero",
+        "indian-animation",
+        "fan-art"
+      ],
+      "aliases": [
+        "chotu"
+      ],
+      "author": {
+        "name": "makriman",
+        "url": "https://github.com/makriman"
+      },
+      "url": "https://github.com/makriman/Chhota-Bheem-pet"
+    },
+    {
       "id": "dnf-female-ammo--qunboo",
       "name": "女弹药Q",
       "description": "A chibi-style Dungeon Fighter Online Female Mechanic (Ammo) desktop pet, featuring idle breathing and gun-twirl animations.",
